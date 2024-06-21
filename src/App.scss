@@ -4,7 +4,7 @@ body {
   color: black; /* Set text color */
   margin: 0;
   padding: 0;
-}
+
 
 .wrapper {
   max-width: 100%;
@@ -34,6 +34,14 @@ body {
       text-decoration: line-through;
     }
    }
+   h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color:whitesmoke;
+  
+  }
+}
 }
 
 header {
