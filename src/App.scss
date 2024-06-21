@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+  & input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  & span.completed {
+    text-decoration: line-through;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    & input[type="text"] {
+      margin: 5px 0;
+    }
+
+    & button {
+      margin: 5px 0 0 0;
+    }
+  }
+}
+
+.todo-list {
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+  }
+}
+
+button {
+  margin-left: 10px;
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.counters {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
+
+  p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      margin: 5px 0;
+    }
+  }
+}

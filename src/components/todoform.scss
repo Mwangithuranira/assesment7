@@ -1,0 +1,58 @@
+// TodoItem.module.scss
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    & input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+      padding: 5px;
+      border: none;
+      font-size: 16px;
+    }
+  
+    & span.completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+  
+    button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+  
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      padding: 8px;
+    }
+  
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+  
+      & input[type="text"] {
+        margin: 5px 0;
+      }
+  
+      & button {
+        margin: 5px 0 0 0;
+      }
+    }
+  }
+  
