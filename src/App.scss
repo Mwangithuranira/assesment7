@@ -25,6 +25,14 @@ body {
     font-size: 16px;
     color: black;
     background-color: whitesmoke;
+    .todo-item input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+    }
+    
+    .todo-item span.completed {
+      text-decoration: line-through;
+    }
    }
 }
 
@@ -48,14 +56,7 @@ header {
   border-bottom: 1px solid whitesmoke;
 }
 
-.todo-item input[type="text"] {
-  flex: 1;
-  margin-right: 10px;
-}
 
-.todo-item span.completed {
-  text-decoration: line-through;
-}
 
 .todo-list {
   margin-top: 20px;
