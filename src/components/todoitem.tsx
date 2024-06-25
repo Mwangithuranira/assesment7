@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Todo } from '../types.d';
+import useLocalStorage from '../Hooks/useLocalstorage';
 
 interface TodoItemProps {
   todo: Todo;
@@ -9,8 +10,8 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggleComplete, onDelete, onEdit }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [newText, setNewText] = useState(todo.text);
+  const [isEditing, setIsEditing] = useState(false);  
+  const [newText, setNewText] =useLocalStorage('newText', ''); //uselocal storage hook
 
   const handleEdit = () => {
     if (isEditing) {

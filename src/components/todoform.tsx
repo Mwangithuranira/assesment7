@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+// Code: TodoForm.tsx
+import useLocalStorage from '../Hooks/useLocalstorage';
 
 interface TodoFormProps {
   onAddTodo: (text: string) => void;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useLocalStorage ('text', '');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

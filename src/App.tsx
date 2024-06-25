@@ -2,11 +2,13 @@ import React, { useReducer, useEffect } from "react";
 import TodoList from "./components/todolist";
 import TodoForm from "./components/todoform";
 import { Todo, Action } from "./types.d";
+import useLocalStorage from "./Hooks/useLocalstorage";
 
 import "./App.scss";
 import Header from "./components/header";
+//code resolution using useLocalStorage hook
 
-const initialTodos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
+// Remove initialTodos declaration as i have handled it using useLocalStorage hook
 
 const reducer = (state: Todo[], action: Action): Todo[] => {
   switch (action.type) {
@@ -35,11 +37,14 @@ const reducer = (state: Todo[], action: Action): Todo[] => {
 };
 
 const App: React.FC = () => {
-  const [todos, dispatch] = useReducer(reducer, initialTodos);
+  // Use the useLocalStorage hook to get and set todos
+  const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
+
+  const [state, dispatch] = useReducer(reducer, todos);
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    setTodos(state);
+  }, [state, setTodos]);
 
   const addTodo = (text: string) => {
     dispatch({ type: "ADD_TODO", payload: text });
@@ -57,8 +62,8 @@ const App: React.FC = () => {
     dispatch({ type: "EDIT_TODO", payload: { id, text: newText } });
   };
 
-  const totalTodos = todos.length;
-  const completedTodos = todos.filter((todo) => todo.completed).length;
+  const totalTodos = state.length;
+  const completedTodos = state.filter((todo) => todo.completed).length;
   const uncompletedTodos = totalTodos - completedTodos;
 
   return (
@@ -69,7 +74,7 @@ const App: React.FC = () => {
       </div>
       <div className="app">
         <TodoList
-          todos={todos}
+          todos={state}
           onToggleComplete={toggleComplete}
           onDelete={deleteTodo}
           onEdit={editTodo}
